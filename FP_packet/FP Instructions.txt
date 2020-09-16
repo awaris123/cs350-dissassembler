@@ -1,0 +1,17 @@
+﻿Use in final project
+
+add	addi	and	andi	beq
+bne	div	j	jal	jr
+lui	lw	mul	nop	nor
+or	ori	slt	slti	sub
+sw	xor	xori
+
+
+Can ignore
+----------
+addiu	addu	bgtz	blez	bltz
+divu	jalr	lb	lbu	mfhi
+mflo	mulu	sb	sltiu	sltu
+subu
+exception handling
+floating point

@@ -1,0 +1,41 @@
+[version 5: mult not mul; sll says it doesn't use rs; decided to do
+the same thing for nop, but you don't have to.]
+----------------------------------------------------------------------
+Spring 2019 - CS 350 Final Project sample solution
+
+Loading data.txt
+Read 27 lines of data
+Enter program counter (hex digits): 
+
+Initial program counter = x12340000
+
+Location    Instruction
+x12340000   beq   $0, $at, x0100  : dec 256     target = x12340404
+x12340004   bne  $v0, $v1, x0010  : dec 16      target = x12340048
+x12340008   bne  $v0, $v1, x8000  : dec -32768  target = x1232000c
+x1234000c   addi $a0, $a1, x0001  : dec 1     
+x12340010   slti $a2, $a3, x00ff  : dec 255   
+x12340014   andi $t0, $t1, x01ff  : dec 511   
+x12340018   ori  $t2, $t3, x1000  : dec 4096  
+x1234001c   xori $t4, $t5, x7fff  : dec 32767 
+x12340020   lui  $t6, $t7, x8000  : dec -32768
+x12340024   lw   $s0, $s1, x8fff  : dec -28673
+x12340028   sw   $s2, $s3, xffff  : dec -1    
+x1234002c   j    x0000000  
+x12340030   j    x1fffffc  
+x12340034   j    x3fffffc  
+x12340038   jal  x2000000  
+x1234003c   sll  $s6, $s5,  4    (rs/f:x14, x00 = dec 20,  0)
+x12340040   jr   $t9, $s7, $t8   (s/f: x08, x08 = dec  8,  8)
+x12340044   mult $gp, $k0, $k1   (s/f: x0C, x18 = dec 12, 24)
+x12340048   div  $ra, $sp, $fp   (s/f: x10, x1A = dec 16, 26)
+x1234004c   add  $v0,  $0, $at   (s/f: x14, x20 = dec 20, 32)
+x12340050   sub  $a1, $v1, $a0   (s/f: x18, x22 = dec 24, 34)
+x12340054   and  $t0, $a2, $a3   (s/f: x1C, x24 = dec 28, 36)
+x12340058   or   $s1, $t1, $s0   (s/f: x00, x25 = dec  0, 37)
+x1234005c   nor  $s4, $s2, $s3   (s/f: x04, x27 = dec  4, 39)
+x12340060   xor  $s7, $s5, $s6   (s/f: x08, x26 = dec  8, 38)
+x12340064   slt  $k0, $t8, $t9   (s/f: x0B, x2A = dec 11, 42)
+x12340068   nop   $0,  $0,  0    (rs/f:x00, x00 = dec  0,  0)
+
+Program ending
